@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  sitemap.xml — 마곡코엔이비인후과 어지럼증 클리닉
+  ===========================================================
+  ✅ 구글 서치콘솔 제출 방법:
+     1. https://search.google.com/search-console 접속
+     2. 속성 선택 → 왼쪽 메뉴 '사이트맵' 클릭
+     3. 'https://www.magok-dizziness.site/sitemap.xml' 입력 후 제출
+
+  ✅ 네이버 서치어드바이저 제출 방법:
+     1. https://searchadvisor.naver.com 접속
+     2. 사이트 등록 → 사이트맵 제출 메뉴
+     3. 'https://www.magok-dizziness.site/sitemap.xml' 입력 후 제출
+  ===========================================================
+-->
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml">
+
+  <!-- 메인 페이지 (canonical: www) -->
+  <url>
+    <loc>https://www.magok-dizziness.site/</loc>
+    <lastmod>2025-07-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>1.0</priority>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://www.magok-dizziness.site/"/>
+  </url>
+
+</urlset>

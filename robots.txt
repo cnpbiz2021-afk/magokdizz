@@ -1,0 +1,16 @@
+# robots.txt — 마곡코엔이비인후과 어지럼증 클리닉
+# ===========================================================
+# 구글봇, 네이버봇 모두 허용
+# www/non-www 혼재 방지: 서버에서 non-www → www 301 리다이렉트 설정 필수
+#   예) GitHub Pages: CNAME 파일에 www.magok-dizziness.site 입력
+#       Gabia DNS: A 레코드 www → GitHub Pages IP
+# ===========================================================
+
+User-agent: *
+Allow: /
+
+# 네이버 서치어드바이저 인증 파일 허용
+Allow: /naver*.html
+
+# Sitemap 경로 명시 (구글·네이버 양쪽 크롤러 참조)
+Sitemap: https://www.magok-dizziness.site/sitemap.xml
