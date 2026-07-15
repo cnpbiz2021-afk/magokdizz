@@ -894,18 +894,37 @@
     .hours-table .closed { color: #EF4444; }
 
     .map-placeholder {
+      position: relative;
       background: var(--bg-gray);
       border: 1px solid var(--neutral-line);
       border-radius: var(--radius-lg);
       height: 320px;
-      display: flex; flex-direction: column;
-      align-items: center; justify-content: center;
-      gap: 12px; color: var(--neutral-sub);
-      text-align: center;
+      overflow: hidden;
     }
-    .map-placeholder svg { width: 48px; height: 48px; color: var(--brand-primary); opacity: 0.5; }
-    .map-placeholder p { font-size: 14px; line-height: 1.6; }
-    .map-placeholder a {
+    .map-placeholder iframe {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      border: 0;
+    }
+    .map-placeholder .map-info-card {
+      position: absolute;
+      left: 16px;
+      bottom: 16px;
+      max-width: calc(100% - 32px);
+      background: rgba(255,255,255,0.94);
+      backdrop-filter: blur(4px);
+      border: 1px solid var(--neutral-line);
+      border-radius: var(--radius-md, 12px);
+      padding: 14px 16px;
+      display: flex; flex-direction: column;
+      align-items: flex-start; gap: 10px;
+      color: var(--neutral-sub);
+      box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+    }
+    .map-placeholder .map-info-card p { font-size: 14px; line-height: 1.6; margin: 0; }
+    .map-placeholder .map-info-card a {
       display: inline-flex; align-items: center; gap: 6px;
       font-size: 13px; font-weight: 700;
       color: var(--brand-primary);
@@ -914,7 +933,7 @@
       transition: var(--transition);
       min-height: 44px;
     }
-    .map-placeholder a:hover { background: var(--brand-primary); color: white; }
+    .map-placeholder .map-info-card a:hover { background: var(--brand-primary); color: white; }
 
     /* NAP 블록 (네이버 NAP 일관성) */
     .nap-block {
@@ -1836,18 +1855,23 @@
           <!-- 지도 자리 -->
           <div>
             <div class="map-placeholder" role="img" aria-label="마곡코엔이비인후과 지도 위치">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                <path d="M17.657 16.657L13.414 20.9a2 2 0 01-2.828 0l-4.243-4.243a8 8 0 1111.314 0z"/><circle cx="12" cy="11" r="3"/>
-              </svg>
-              <p>
-                <strong style="color: var(--neutral-ink);">서울 강서구 공항대로 164</strong><br>
-                류마타워 305호<br>
-                마곡코엔이비인후과
-              </p>
-              <a href="https://map.naver.com/v5/search/마곡코엔이비인후과" target="_blank" rel="noopener noreferrer" id="naver-map-link">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:16px;height:16px;"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6M15 3h6v6M10 14L21 3"/></svg>
-                네이버 지도에서 보기
-              </a>
+              <iframe
+                src="https://maps.google.com/maps?q=서울특별시 강서구 공항대로 164 류마타워&z=16&output=embed"
+                title="마곡코엔이비인후과 위치 지도"
+                loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade">
+              </iframe>
+              <div class="map-info-card">
+                <p>
+                  <strong style="color: var(--neutral-ink);">서울 강서구 공항대로 164</strong><br>
+                  류마타워 305호<br>
+                  마곡코엔이비인후과
+                </p>
+                <a href="https://map.naver.com/v5/search/마곡코엔이비인후과" target="_blank" rel="noopener noreferrer" id="naver-map-link">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:16px;height:16px;"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6M15 3h6v6M10 14L21 3"/></svg>
+                  네이버 지도에서 보기
+                </a>
+              </div>
             </div>
           </div>
         </div>
@@ -1865,9 +1889,6 @@
           <a href="tel:0507-1426-5075" class="btn btn-white" id="cta-band-phone">
             <svg viewBox="0 0 24 24" fill="currentColor"><path d="M6.62 10.79a15.15 15.15 0 006.59 6.59l2.2-2.2a1 1 0 011.01-.24 11.36 11.36 0 003.56.57 1 1 0 011 1V20a1 1 0 01-1 1A17 17 0 013 4a1 1 0 011-1h3.5a1 1 0 011 1 11.36 11.36 0 00.57 3.56 1 1 0 01-.25 1.01z"/></svg>
             0507-1426-5075 전화 예약
-          </a>
-          <a href="https://map.naver.com/v5/search/마곡코엔이비인후과" target="_blank" rel="noopener noreferrer" class="btn btn-white-outline" id="cta-band-map">
-            네이버 지도로 찾아가기
           </a>
         </div>
       </div>
@@ -1888,12 +1909,6 @@
             서울특별시 강서구 공항대로 164 류마타워 305호<br>
             Tel: <a href="tel:0507-1426-5075" id="footer-phone" style="color: rgba(255,255,255,0.6);">0507-1426-5075</a>
           </address>
-          <div class="footer-social">
-            <a href="https://blog.naver.com/magok2b" target="_blank" rel="noopener noreferrer"
-               class="social-btn" id="footer-blog-link" aria-label="네이버 블로그">
-              <svg viewBox="0 0 24 24"><path d="M4 6.4V17.6C4 18.9255 5.0745 20 6.4 20H17.6C18.9255 20 20 18.9255 20 17.6V6.4C20 5.0745 18.9255 4 17.6 4H6.4C5.0745 4 4 5.0745 4 6.4ZM9.5 12.5L7 9H10L11.5 11.5L13 9H16L13.5 12.5L16 16H13L11.5 13.5L10 16H7L9.5 12.5Z"/></svg>
-            </a>
-          </div>
         </div>
 
         <div class="footer-col">
