@@ -11,4 +11,4 @@ Allow: /
 
 Allow: /naver*.html
 
-Sitemap: https://마곡어지럼증.com/sitemap.xml
+Sitemap: https://xn--399aq4snmb30xbxe7f.com/sitemap.xml
