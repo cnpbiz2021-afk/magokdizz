@@ -9,8 +9,6 @@
 User-agent: *
 Allow: /
 
-# 네이버 서치어드바이저 인증 파일 허용
 Allow: /naver*.html
 
-# Sitemap 경로 명시 (구글·네이버 양쪽 크롤러 참조)
-Sitemap: https://www.magok-dizziness.site/sitemap.xml
+Sitemap: https://마곡어지럼증.com/sitemap.xml
